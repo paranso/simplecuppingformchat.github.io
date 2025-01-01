@@ -1,100 +1,115 @@
-/* 컨테이너 기본 스타일 */
-.container {
-  max-width: 600px; 
-  margin: 0 auto;
-  padding: 20px;
-  font-family: sans-serif;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간단 커핑 앱</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>simple cupping form</h1>
 
-/* 각 항목 구역 스타일 (테두리와 여백) */
-.cupping-section {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: #f9f9f9;
-}
+    <!-- 0. 기본 정보 입력 섹션 -->
+    <div class="cupping-section">
+      <h2>기본 정보 입력</h2>
+      <p>아래 정보를 입력해 주세요.</p>
 
-/* 제목들 조금 더 강조 */
-.cupping-section h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
+      <div class="input-group">
+        <label for="roasting-date">로스팅 날짜</label>
+        <input type="date" id="roasting-date">
+      </div>
 
-/* label과 input 정렬 및 간격 */
-.input-group {
-  margin-bottom: 15px;
-}
+      <div class="input-group">
+        <label for="cupping-date">커핑 날짜</label>
+        <input type="date" id="cupping-date">
+      </div>
 
-.options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+      <div class="input-group">
+        <label for="coffee-name">커피 이름</label>
+        <input type="text" id="coffee-name" placeholder="예) 에티오피아 예가체프">
+      </div>
+    </div>
 
-.options label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
+    <!-- 1. 향 맡기 -->
+    <div class="cupping-section">
+      <h2>1. 향 맡기</h2>
+      <p>분쇄된 원두의 향을 맡고 느껴지는 향을 선택하거나 적어보세요.</p>
+      <div class="input-group">
+        <label>향 선택 (선택)</label>
+        <div class="options">
+          <label><input type="checkbox" value="꽃향"> 꽃향</label>
+          <label><input type="checkbox" value="과일향"> 과일향</label>
+          <label><input type="checkbox" value="견과류향"> 견과류향</label>
+          <label><input type="checkbox" value="초콜릿향"> 초콜릿향</label>
+          <label><input type="checkbox" value="기타향"> 기타향</label>
+        </div>
+        <input type="text" id="aroma-text" placeholder="기타 향을 직접 적어주세요">
+      </div>
+    </div>
 
-/* 텍스트 입력창 크게 만들기 */
-input[type="text"],
-input[type="date"] {
-  display: block;
-  width: 100%;
-  height: 40px;
-  padding: 8px;
-  margin-top: 5px;
-  font-size: 1rem;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
+    <!-- 2. 맛 보기 -->
+    <div class="cupping-section">
+      <h2>2. 맛보기</h2>
+      <p>커피를 맛보고 느껴지는 맛을 선택하거나 적어보세요.</p>
+      <div class="input-group">
+        <label>맛 선택 (선택)</label>
+        <div class="options">
+          <label><input type="checkbox" value="단맛"> 단맛</label>
+          <label><input type="checkbox" value="산미"> 산미</label>
+          <label><input type="checkbox" value="쓴맛"> 쓴맛</label>
+          <label><input type="checkbox" value="기타맛"> 기타맛</label>
+        </div>
+        <input type="text" id="taste-text" placeholder="기타 맛을 직접 적어주세요">
+      </div>
+    </div>
 
-/* textarea도 동일한 높이와 스타일을 적용 */
-textarea {
-  display: block;
-  width: 100%;
-  /* input[type="text"]와 동일 높이 원하시면 아래값 사용(단, multiline이 불편할 수 있음) */
-  height: 40px; 
-  padding: 8px;
-  margin-top: 5px;
-  font-size: 1rem;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical; /* 필요에 따라 사용자가 세로 크기 조절 가능 */
-}
+    <!-- 3. 전체적인 느낌 -->
+    <div class="cupping-section">
+      <h2>3. 전체적인 느낌</h2>
+      <p>커피의 전체적인 느낌을 선택하거나 적어보세요.</p>
+      <div class="input-group">
+        <label>느낌 선택 (선택)</label>
+        <div class="options">
+          <label><input type="checkbox" value="부드러움"> 부드러움</label>
+          <label><input type="checkbox" value="묵직함"> 묵직함</label>
+          <label><input type="checkbox" value="깔끔함"> 깔끔함</label>
+          <label><input type="checkbox" value="씁쓸함"> 씁쓸함</label>
+          <label><input type="checkbox" value="달콤함"> 달콤함</label>
+          <label><input type="checkbox" value="상큼함"> 상큼함</label>
+          <label><input type="checkbox" value="기타느낌"> 기타느낌</label>
+        </div>
+        <input type="text" id="feel-text" placeholder="기타 느낌을 직접 적어주세요">
+      </div>
+    </div>
 
-/* 저장 버튼 스타일 */
-#save-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-}
+    <!-- 4. 추가 메모 -->
+    <div class="cupping-section">
+      <h2>4. 추가 메모</h2>
+      <p>추가로 기록해두고 싶은 내용이 있다면 적어보세요.</p>
+      <div class="input-group">
+        <label for="additional-note">추가 메모</label>
+        <textarea id="additional-note" placeholder="예) 숙성 시간, 물 온도 등" rows="4"></textarea>
+      </div>
+    </div>
 
-#save-button:hover {
-  background-color: #45a049;
-}
+    <!-- 5. 로스팅 추천 방향 -->
+    <div class="cupping-section">
+      <h2>5. 로스팅 추천 방향</h2>
+      <p>이번에 맛본 커피를 바탕으로, 향후 로스팅에 대한 아이디어나 조정 방향을 적어보세요.</p>
+      <div class="input-group">
+        <label for="roasting-recommendation">로스팅 추천</label>
+        <textarea id="roasting-recommendation" placeholder="예) 더 라이트하게 혹은 더 다크하게" rows="4"></textarea>
+      </div>
+    </div>
 
-/* 결과 표시 영역 */
-#result-area {
-  margin-top: 20px;
-}
+    <!-- 결과 저장 버튼 및 결과 영역 -->
+    <button id="save-button">결과 저장</button>
+    <div id="result-area">
+      <pre id="result-display"></pre>
+    </div>
 
-#result-display {
-  white-space: pre-wrap;
-  border: 1px solid #ccc;
-  padding: 10px;
-  background-color: #fff;
-  border-radius: 4px;
-  font-family: monospace;
-}
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
