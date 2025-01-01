@@ -77,4 +77,46 @@
           <label><input type="checkbox" value="묵직함" /> 묵직함</label>
           <label><input type="checkbox" value="깔끔함" /> 깔끔함</label>
           <label><input type="checkbox" value="씁쓸함" /> 씁쓸함</label>
-          <label><input type="checkbox" value="달
+          <label><input type="checkbox" value="달콤함" /> 달콤함</label>
+          <label><input type="checkbox" value="상큼함" /> 상큼함</label>
+          <label><input type="checkbox" value="기타느낌" /> 기타느낌</label>
+        </div>
+        <input type="text" id="feel-text" placeholder="기타 느낌을 직접 적어주세요" />
+      </div>
+    </div>
+
+    <!-- (4) 추가 메모 -->
+    <div class="cupping-section">
+      <h2>4. 추가 메모</h2>
+      <p>추가로 기록해두고 싶은 내용이 있다면 적어보세요.</p>
+      <div class="input-group">
+        <label for="additional-note">추가 메모</label>
+        <textarea
+          id="additional-note"
+          placeholder="(예) 숙성 시간, 물 온도"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- (5) 로스팅 추천 방향 -->
+    <div class="cupping-section">
+      <h2>5. 로스팅 추천 방향</h2>
+      <p>이번에 맛본 커피를 바탕으로, 향후 로스팅에 대한 아이디어나 조정 방향을 적어보세요.</p>
+      <div class="input-group">
+        <label for="roasting-recommendation">로스팅 추천</label>
+        <textarea
+          id="roasting-recommendation"
+          placeholder="(예) 더 라이트하게 혹은 더 다크하게"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- 결과 저장 버튼 및 결과 영역 -->
+    <button id="save-button">결과 저장</button>
+    <div id="result-area">
+      <pre id="result-display"></pre>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
