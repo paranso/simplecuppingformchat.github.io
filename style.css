@@ -23,42 +23,60 @@
   color: #333;
 }
 
+/* 날짜 2개를 가로로 배치하기 위한 Row 컨테이너 */
+.date-row {
+  display: flex;
+  gap: 10px; /* 중간 간격 */
+}
+
 /* label과 input 정렬 및 간격 */
 .input-group {
   margin-bottom: 15px;
+  flex: 1; /* date-row에서 균등 분배 */
 }
 
-/* 체크박스, 라디오박스 옵션 */
+/* 체크박스나 라디오가 들어가는 영역 */
 .options {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-
 .options label {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-/* 모든 텍스트 입력 박스와 날짜 선택 박스 공통 스타일 */
+/* 모든 텍스트 입력, 날짜 입력은 일단 동일 스타일 */
 input[type="text"],
-input[type="date"],
-textarea {
+input[type="date"] {
   display: block;
   width: 100%;
-  height: 40px;           /* 동일 높이 */
+  height: 40px;
   padding: 8px;
   margin-top: 5px;
   font-size: 1rem;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* textarea에 여러 줄 입력이 가능하도록 하려면 높이를 조금 더 키우거나 rows 사용 */
+/* 4번, 5번의 textarea 높이를 조금 더 크게 (4줄 이상) */
 textarea {
-  resize: vertical;  /* 필요에 따라 none, vertical, both 등 조절 */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  /* 최소 4줄 정도 보이도록 */
+  min-height: 6em; /* 대략 4줄~5줄 정도 */
+
+  /* 내용이 넘치면 스크롤 표시 (수직) */
+  resize: vertical; /* 사용자가 수직 크기 조절 가능 */
+  overflow-y: auto;
 }
 
 /* 저장 버튼 스타일 */
@@ -80,11 +98,17 @@ textarea {
 #result-area {
   margin-top: 20px;
 }
+
+/* 결과를 좀 더 크게 보이도록 min-height 부여 */
 #result-display {
   white-space: pre-wrap;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 15px;
   background-color: #fff;
   border-radius: 4px;
   font-family: monospace;
+
+  /* 크기를 조금 여유있게 */
+  min-height: 120px; 
+  font-size: 1rem;
 }
