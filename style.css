@@ -1,6 +1,6 @@
 /* 컨테이너 기본 스타일 */
 .container {
-  max-width: 600px; 
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   font-family: sans-serif;
@@ -28,6 +28,7 @@
   margin-bottom: 15px;
 }
 
+/* 체크박스, 라디오박스 옵션 */
 .options {
   display: flex;
   flex-wrap: wrap;
@@ -40,33 +41,24 @@
   cursor: pointer;
 }
 
-/* 텍스트 입력창 크게 만들기 */
+/* 모든 텍스트 입력 박스와 날짜 선택 박스 공통 스타일 */
 input[type="text"],
-input[type="date"] {
+input[type="date"],
+textarea {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 40px;           /* 동일 높이 */
   padding: 8px;
   margin-top: 5px;
   font-size: 1rem;
-  box-sizing: border-box;
+  box-sizing: border-box; 
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* textarea도 동일한 높이와 스타일을 적용 */
+/* textarea에 여러 줄 입력이 가능하도록 하려면 높이를 조금 더 키우거나 rows 사용 */
 textarea {
-  display: block;
-  width: 100%;
-  /* input[type="text"]와 동일 높이 원하시면 아래값 사용(단, multiline이 불편할 수 있음) */
-  height: 40px; 
-  padding: 8px;
-  margin-top: 5px;
-  font-size: 1rem;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical; /* 필요에 따라 사용자가 세로 크기 조절 가능 */
+  resize: vertical;  /* 필요에 따라 none, vertical, both 등 조절 */
 }
 
 /* 저장 버튼 스타일 */
@@ -80,7 +72,6 @@ textarea {
   cursor: pointer;
   font-size: 1rem;
 }
-
 #save-button:hover {
   background-color: #45a049;
 }
@@ -89,7 +80,6 @@ textarea {
 #result-area {
   margin-top: 20px;
 }
-
 #result-display {
   white-space: pre-wrap;
   border: 1px solid #ccc;
