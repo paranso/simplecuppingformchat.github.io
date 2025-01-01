@@ -15,71 +15,62 @@
   background-color: #f9f9f9;
 }
 
-/* 제목들 조금 더 강조 */
-.cupping-section h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-/* 날짜 2개를 가로로 배치하기 위한 Row 컨테이너 */
+/* 날짜 2개를 가로로 강제로 배치: flex-wrap: nowrap */
 .date-row {
   display: flex;
-  gap: 10px; /* 중간 간격 */
-}
-
-/* label과 input 정렬 및 간격 */
-.input-group {
-  margin-bottom: 15px;
-  flex: 1; /* date-row에서 균등 분배 */
-}
-
-/* 체크박스나 라디오가 들어가는 영역 */
-.options {
-  display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; 
   gap: 10px;
 }
-.options label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+
+/* 두 입력 박스가 한 줄에 들어올 수 있도록 폭 제한 */
+.date-row .input-group {
+  /* flex: 1; 로 하면 한 줄에 못 들어갈 수도 있으므로 명시적으로 폭을 줄이거나 아래처럼 처리 */
+  flex: 0 0 auto; 
 }
 
-/* 모든 텍스트 입력, 날짜 입력은 일단 동일 스타일 */
+/* 날짜 input 폭을 작게 설정해 무조건 한 줄에 들어가도록 유도 */
+.date-row .input-group input[type="date"] {
+  max-width: 120px; /* 필요에 따라 100~150px로 조절 */
+}
+
+/* label과 input 간 기본 스타일 */
+.input-group {
+  margin-bottom: 15px;
+}
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 텍스트, 날짜 입력 */
 input[type="text"],
 input[type="date"] {
   display: block;
-  width: 100%;
+  width: 100%; /* date-row에서는 max-width가 제한하므로 실제 폭은 작아짐 */
   height: 40px;
   padding: 8px;
-  margin-top: 5px;
   font-size: 1rem;
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-/* 4번, 5번의 textarea 높이를 조금 더 크게 (4줄 이상) */
+/* textarea는 여러 줄 입력 가능하므로 min-height 등 설정 */
 textarea {
   display: block;
   width: 100%;
-  box-sizing: border-box;
-  margin-top: 5px;
+  min-height: 6em;
+  padding: 8px;
   font-size: 1rem;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-
-  /* 최소 4줄 정도 보이도록 */
-  min-height: 6em; /* 대략 4줄~5줄 정도 */
-
-  /* 내용이 넘치면 스크롤 표시 (수직) */
-  resize: vertical; /* 사용자가 수직 크기 조절 가능 */
+  resize: vertical;
   overflow-y: auto;
 }
 
-/* 저장 버튼 스타일 */
+/* 저장 버튼 */
 #save-button {
   display: inline-block;
   padding: 10px 20px;
@@ -98,8 +89,6 @@ textarea {
 #result-area {
   margin-top: 20px;
 }
-
-/* 결과를 좀 더 크게 보이도록 min-height 부여 */
 #result-display {
   white-space: pre-wrap;
   border: 1px solid #ccc;
@@ -107,8 +96,27 @@ textarea {
   background-color: #fff;
   border-radius: 4px;
   font-family: monospace;
-
-  /* 크기를 조금 여유있게 */
   min-height: 120px; 
   font-size: 1rem;
 }
+
+/* -----------------------
+   (옵션) 미디어 쿼리 예시 
+   -----------------------
+   만약 화면이 더 작아지면(예: 400px 이하)
+   두 날짜를 한 줄에 넣기 어려울 수 있으므로
+   wrap을 허용할 수도 있음. 
+   화면이 정말 작아도 무조건 옆으로 두길 원하면
+   아래 코드는 빼세요.
+*/
+/*
+@media (max-width: 400px) {
+  .date-row {
+    flex-wrap: wrap; 
+  }
+  .date-row .input-group {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+*/
